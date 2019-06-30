@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node server",
     "start-dev": "webpack -w & nodemon server",
+    "deploy": "script/deploy",
+    "seed": "node script/seed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,9 +16,12 @@
     "express": "^4.16.4",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.10",
+    "pg": "^7.11.0",
+    "pg-hstore": "^2.3.3",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "sequelize": "^5.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",

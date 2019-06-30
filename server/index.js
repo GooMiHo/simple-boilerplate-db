@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const port = 3000;
-
+const db = require('./db');
 
 const morgan = require('morgan');
 app.use(morgan('dev'));
@@ -28,6 +28,9 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500).send(err.message || 'Internal server error.');
 });
 
-app.listen(port, function() {
-  console.log(`Listening on port ${port}`);
-});
+db.sync()
+  .then(function(){
+    app.listen(port, function() {
+      console.log(`Listening on port ${port}`);
+    });
+  });
